@@ -22,6 +22,7 @@
                         <th>NPM</th>
                         <th>Nama</th>
                         <th>Alamat</th>
+                        <th>Opsi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,6 +32,11 @@
                             <td>{{ $data->npm }}</td>
                             <td>{{ $data->nama }}</td>
                             <td>{{ $data->alamat }}</td>
+                            <td>
+                                <a href="" class="btn btn-primary">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
