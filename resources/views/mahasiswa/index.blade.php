@@ -36,7 +36,7 @@
                                 <a href="{{ url('mahasiswa/edit/'.$data->id) }}" class="btn btn-primary btn-sm">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <form class="d-inline" action="{{ url('mahasiswa/'.$data->id) }}" method="post">
+                                <form class="d-inline" onsubmit="return confirm('Yakin mau hapus data ini?')" action="{{ url('mahasiswa/'.$data->id) }}" method="post">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger btn-sm">
