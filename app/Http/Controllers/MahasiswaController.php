@@ -29,4 +29,28 @@ class MahasiswaController extends Controller
 
         return redirect('mahasiswa')->with('status', 'Data Berhasil Disimpan!');
     }
+
+    public function edit($id)
+    {
+        $mahasiswa = DB::table('mahasiswa')->where('id', $id)->first();
+        return view('mahasiswa/edit', compact('mahasiswa'));
+    }
+
+    public function editProses(Request $request, $id)
+    {
+        DB::table('mahasiswa')->where('id', $id)->update([
+            'npm' => $request->npm,
+            'nama' => $request->nama,
+            'alamat' => $request->alamat
+        ]);
+        
+        return redirect('mahasiswa')->with('status', 'Data Berhasil Diedit!');
+    }
+
+    public function hapus($id)
+    {
+        DB::table('mahasiswa')->where('id', $id)->delete();
+
+        return redirect('mahasiswa')->with('status', 'Data Berhasil Dihapus!');
+    }
 }

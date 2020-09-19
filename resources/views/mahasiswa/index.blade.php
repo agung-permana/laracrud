@@ -33,9 +33,16 @@
                             <td>{{ $data->nama }}</td>
                             <td>{{ $data->alamat }}</td>
                             <td>
-                                <a href="" class="btn btn-primary">
+                                <a href="{{ url('mahasiswa/edit/'.$data->id) }}" class="btn btn-primary btn-sm">
                                     <i class="fas fa-edit"></i>
                                 </a>
+                                <form class="d-inline" action="{{ url('mahasiswa/'.$data->id) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
